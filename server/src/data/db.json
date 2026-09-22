@@ -1,0 +1,78 @@
+{
+  "users": [
+    {
+      "id": "usr-demo",
+      "email": "cliente@kaitenloco.es",
+      "firstName": "Carlos",
+      "lastNamePaternal": "Pérez",
+      "lastNameMaternal": "Gómez",
+      "hasSecondLastName": true,
+      "phone": "4821",
+      "passwordHash": "Jupiter1SalmonX",
+      "createdAt": "2026-09-21T00:00:00.000Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "ORD-10928",
+      "userId": "usr-demo",
+      "tableNumber": 4,
+      "items": [
+        {
+          "item": {
+            "id": "sush-01",
+            "name": "Atún Rojo Clásico",
+            "japaneseName": "Atún Maguro Fresco",
+            "category": "Nigiri",
+            "plateColor": "yellow",
+            "priceYen": 120,
+            "description": "El clásico bocado de atún rojo de Kaiten Loco cortado a mano.",
+            "emoji": "🍣",
+            "calories": 82,
+            "stock": 49
+          },
+          "quantity": 2
+        },
+        {
+          "item": {
+            "id": "sush-09",
+            "name": "Atún Supremo Vientre Graso",
+            "japaneseName": "Corte de Lujo de Atún",
+            "category": "Nigiri",
+            "plateColor": "black",
+            "priceYen": 360,
+            "description": "Corte premium de atún rojo veteado.",
+            "emoji": "👑",
+            "calories": 155,
+            "stock": 14
+          },
+          "quantity": 1
+        }
+      ],
+      "sauces": {
+        "shoyuNormal": true,
+        "shoyuSweet": false,
+        "wasabiExtra": true,
+        "gariGinger": true,
+        "matchaPowderDrops": 3
+      },
+      "survey": {
+        "rating": 5,
+        "willingToReturn": true,
+        "comments": "Excelente suplicio visual."
+      },
+      "deliveryDetails": {
+        "firstName": "Carlos",
+        "lastNamePaternal": "Pérez",
+        "lastNameMaternal": "Gómez",
+        "phone": "4821"
+      },
+      "totalYen": 660,
+      "taxYen": 66,
+      "status": "COMPLETED",
+      "paid": true,
+      "paymentMethod": "Tarjeta Kaiten Loco Oro",
+      "createdAt": "2026-09-20T19:30:00.000Z"
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Paprika&display=swap');
+
+:root {
+  --neon-yellow: #ffff00;
+  --neon-lime: #00ff00;
+  --blinding-white: #ffffff;
+  --sick-grey: #f4f4f4;
+  --sushiro-red: #e60012;
+  --sushiro-gold: #c5a059;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  background-image: radial-gradient(#e0e0e0 15%, transparent 16%), radial-gradient(#ffff00 15%, transparent 16%);
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+  color: #111111;
+  font-family: 'Comic Sans MS', 'Papyrus', 'Impact', cursive, sans-serif;
+  overflow-x: hidden;
+}
+
+/* BLINK ANIMATIONS */
+@keyframes hostile-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes hostile-blink-fast {
+  0%, 40% { opacity: 1; }
+  41%, 100% { opacity: 0; }
+}
+
+.blink {
+  animation: hostile-blink 0.7s infinite;
+}
+
+.blink-fast {
+  animation: hostile-blink-fast 0.3s infinite;
+}
+
+@keyframes hostile-shake {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-3px, 2px); }
+  40% { transform: translate(3px, -2px); }
+  60% { transform: translate(-2px, -3px); }
+  80% { transform: translate(2px, 3px); }
+}
+
+.shake {
+  animation: hostile-shake 0.4s infinite;
+}
+
+/* CAOTIC TYPOGRAPHY UTILITIES */
+.font-comic { font-family: 'Comic Sans MS', 'Comic Neue', cursive; }
+.font-papyrus { font-family: 'Papyrus', fantasy; }
+.font-impact { font-family: 'Impact', 'Arial Black', sans-serif; }
+.font-script { font-family: 'Brush Script MT', 'Lucida Handwriting', cursive; }
+.font-courier { font-family: 'Courier New', monospace; }
+.font-times { font-family: 'Times New Roman', serif; }
+
+/* Destructive Contrast: Lime/Yellow on White */
+.contrast-destructive-yellow {
+  background-color: #ffffff !important;
+  color: #d4cf00 !important;
+  text-shadow: 0 0 1px #ffff55;
+}
+
+.contrast-destructive-lime {
+  background-color: #fbfbfb !important;
+  color: #27d912 !important;
+}
+
+/* MARQUEES OPUESTAS */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 4px 0;
+  border-top: 2px dashed #ff0000;
+  border-bottom: 2px dashed #00ff00;
+  font-weight: bold;
+}
+
+.marquee-left {
+  display: inline-block;
+  animation: scroll-left 14s linear infinite;
+}
+
+.marquee-right {
+  display: inline-block;
+  animation: scroll-right 11s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes scroll-right {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100vw); }
+}
+
+/* INVERSIÓN DE METÁFORAS VISUALES */
+/* 1. Fake link: looks like an authentic hyperlink with pointer cursor, but is completely inert */
+.fake-hyperlink {
+  color: #0000ee !important;
+  text-decoration: underline !important;
+  cursor: pointer !important;
+  user-select: none;
+}
+
+.fake-hyperlink:hover {
+  color: #551a8b !important;
+}
+
+/* 2. Real interactive action: disguised as plain, boring black text with default cursor */
+.real-action-disguised {
+  all: unset;
+  display: inline;
+  color: #000000 !important;
+  background: transparent !important;
+  border: none !important;
+  text-decoration: none !important;
+  cursor: default !important;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.real-action-disguised:focus {
+  outline: none;
+}
+
+/* 3. Primary Button looks disabled (dull grey #ccc, grey text, default cursor) */
+.btn-primary-disguised-disabled {
+  background-color: #e2e4e8 !important;
+  color: #9ba3af !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 2px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-family: 'Times New Roman', serif;
+  cursor: default !important;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1);
+  transition: none;
+}
+
+.btn-primary-disguised-disabled:hover {
+  background-color: #dedede !important;
+  color: #8c939f !important;
+}
+
+/* 4. Secondary / Destructive Button looks like a neon glowing call-to-action */
+.btn-destructive-hyper-flashy {
+  background: linear-gradient(135deg, #ff0055, #ffdd00) !important;
+  color: #ffffff !important;
+  border: 3px outset #ffff00 !important;
+  padding: 14px 28px !important;
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  font-family: 'Impact', sans-serif !important;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer !important;
+  box-shadow: 0 0 20px #ff0055, 0 0 40px #ffff00;
+  animation: hostile-blink-fast 0.6s infinite;
+  transform: scale(1.02);
+}
+
+.btn-destructive-hyper-flashy:hover {
+  transform: scale(1.08) rotate(-1deg);
+}
+
+/* FUGITIVE ZERO-DELAY DROPDOWN */
+.fugitive-menu-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.fugitive-menu-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 9999;
+  background-color: #ffffdd;
+  border: 3px solid #ff0000;
+  padding: 8px;
+  min-width: 220px;
+  box-shadow: 6px 6px 0px #000;
+}
+
+/* DELIBERATE CUMULATIVE LAYOUT SHIFT (CLS) */
+.layout-shift-spacer {
+  transition: height 0.05s ease-in;
+  overflow: hidden;
+}
+
+.layout-shift-spacer.expanded {
+  height: 110px;
+  background: repeating-linear-gradient(45deg, #ff0, #ff0 10px, #f00 10px, #f00 20px);
+  color: #fff;
+  font-weight: 900;
+  font-size: 17px;
+  padding: 12px;
+  text-align: center;
+  border: 4px dashed yellow;
+}
+
+/* ROTATING CONVEYOR PLATE */
+@keyframes spin-plate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.plate-rotating {
+  display: inline-block;
+  animation: spin-plate 6s linear infinite;
+}
+
+/* CUSTOM SCROLLBAR FOR HORIZONTAL HIDDEN TABLE */
+.torture-horizontal-scroll {
+  overflow-x: scroll;
+  max-width: 320px;
+  white-space: nowrap;
+  border: 4px solid #0000ff;
+  padding: 6px;
+  background: #ffffcc;
+}
+
+.torture-horizontal-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.torture-horizontal-scroll::-webkit-scrollbar-thumb {
+  background: #ff0000;
+}
