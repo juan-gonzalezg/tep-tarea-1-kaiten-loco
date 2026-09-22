@@ -10,7 +10,7 @@
 El proyecto se encuentra desplegado y accesible públicamente a través de **Cloudflare**:
 
 🔗 **Enlace de la Aplicación en Cloudflare:**
-👉 `https://tep-tarea-1-kaiten-loco.pages.dev/`
+👉 [https://tep-tarea-1-kaiten-loco.pages.dev/](https://tep-tarea-1-kaiten-loco.pages.dev/)
 
 ---
 
