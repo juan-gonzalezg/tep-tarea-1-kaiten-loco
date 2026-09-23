@@ -73,10 +73,13 @@ export async function loginUser(email: string, password: string) {
       body: JSON.stringify({ email, password })
     });
     if (res.ok) return await res.json();
+    if (res.status === 404 || res.status === 502 || !(res.headers.get('content-type') || '').includes('application/json')) {
+      throw new Error('OFFLINE_FALLBACK');
+    }
     const data = await res.json();
     throw new Error(data.error || 'Error en el login');
   } catch (err: any) {
-    if (err.message && !err.message.includes('fetch')) {
+    if (err.message && err.message !== 'OFFLINE_FALLBACK' && !err.message.includes('fetch') && !err.message.includes('JSON') && !err.message.includes('json')) {
       throw err;
     }
     // Fallback to localStorage
@@ -109,10 +112,13 @@ export async function registerUser(payload: {
       body: JSON.stringify(payload)
     });
     if (res.ok) return await res.json();
+    if (res.status === 404 || res.status === 502 || !(res.headers.get('content-type') || '').includes('application/json')) {
+      throw new Error('OFFLINE_FALLBACK');
+    }
     const data = await res.json();
     throw new Error(data.error || 'Error en el registro');
   } catch (err: any) {
-    if (err.message && !err.message.includes('fetch')) {
+    if (err.message && err.message !== 'OFFLINE_FALLBACK' && !err.message.includes('fetch') && !err.message.includes('JSON') && !err.message.includes('json')) {
       throw err;
     }
     // Fallback to localStorage
@@ -155,10 +161,13 @@ export async function createOrder(payload: {
       body: JSON.stringify(payload)
     });
     if (res.ok) return await res.json();
+    if (res.status === 404 || res.status === 502 || !(res.headers.get('content-type') || '').includes('application/json')) {
+      throw new Error('OFFLINE_FALLBACK');
+    }
     const data = await res.json();
     throw new Error(data.error || 'Error al procesar el pedido');
   } catch (err: any) {
-    if (err.message && !err.message.includes('fetch')) {
+    if (err.message && err.message !== 'OFFLINE_FALLBACK' && !err.message.includes('fetch') && !err.message.includes('JSON') && !err.message.includes('json')) {
       throw err;
     }
     // Fallback to localStorage
@@ -219,10 +228,13 @@ export async function processPayment(orderId: string, paymentMethod: string, car
       body: JSON.stringify({ orderId, paymentMethod, cardSliderVerification })
     });
     if (res.ok) return await res.json();
+    if (res.status === 404 || res.status === 502 || !(res.headers.get('content-type') || '').includes('application/json')) {
+      throw new Error('OFFLINE_FALLBACK');
+    }
     const data = await res.json();
     throw new Error(data.error || 'Error en el cobro');
   } catch (err: any) {
-    if (err.message && !err.message.includes('fetch')) {
+    if (err.message && err.message !== 'OFFLINE_FALLBACK' && !err.message.includes('fetch') && !err.message.includes('JSON') && !err.message.includes('json')) {
       throw err;
     }
     // Fallback to localStorage
